@@ -1,3 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_LINE_SIZE 256
+
 
 typedef struct {
     double x;
@@ -33,11 +39,20 @@ typedef struct
     unsigned int residue_size;
 } Chain;
 
-
-
 typedef struct {
     Chain * chains;
 } CifFile;
 
+typedef struct {
+    unsigned int residues_len;
+    unsigned int atoms_len;
+} ChainParams;
 
+typedef struct {
+    unsigned int chains_count;
+    ChainParams * chainsParameters;
+} CifParams;
+
+
+CifParams* read_cif_params(char* path);
 CifFile* read_cif_file(char* path);
