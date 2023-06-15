@@ -32,7 +32,7 @@ CifFile* read_cif_file(char* path)
 void print_atom_record(Atom* atom)
 {
     printf(
-        "atom_id: %u res_id: %u atom_type: %c atom_pdb_type: %s res_name: %s chain_id: %i x: %.3lf y: %.3lf x: %.3lf\n",
+        "atom_id: %u res_id: %u atom_type: %c atom_pdb_type: %s res_name: %s chain_id: %s x: %.3lf y: %.3lf x: %.3lf\n",
         atom->atom_id, atom->res_id, atom->atom_type, atom->atom_pdb_type, atom->res_name, atom->chain_id, 
         atom->coordinates.x, atom->coordinates.y, atom->coordinates.z
         );
@@ -54,8 +54,8 @@ int parse_if_atom_record(char* line, Atom* atom)
     int delimiter1 = 0;
     sscanf(
         line, 
-        "%s %d %c %s . %s %c %d %d ? %lf %lf %lf", 
-        record, &atom->atom_id, &atom->atom_type, atom->atom_pdb_type, atom->res_name, &atom->chain_id, &delimiter1, &atom->res_id,
+        "%s %d %c %s . %s %s %d %d ? %lf %lf %lf", 
+        record, &atom->atom_id, &atom->atom_type, atom->atom_pdb_type, atom->res_name, atom->chain_id, &delimiter1, &atom->res_id,
         &atom->coordinates.x, &atom->coordinates.y, &atom->coordinates.z
     );
     return 1;
