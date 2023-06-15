@@ -16,9 +16,9 @@ typedef struct
     unsigned int atom_id;
     unsigned int res_id;
     char atom_type;
-    char atom_pdb_type;
-    char res_name;
-    char chain_id;
+    char atom_pdb_type[4];
+    char res_name[5];
+    char chain_id[2];
     vector_3d coordinates;
 } Atom;
 
