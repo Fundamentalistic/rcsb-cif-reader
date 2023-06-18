@@ -3,6 +3,7 @@
 #include <string.h>
 
 #define MAX_LINE_SIZE 256
+#define MAX_CHAINS_SIZE 512
 
 
 typedef struct {
@@ -50,6 +51,8 @@ typedef struct {
 
 typedef struct {
     unsigned int chains_count;
+    unsigned int atoms_count;
+    unsigned int residues_count;
     ChainParams * chainsParameters;
 } CifParams;
 
