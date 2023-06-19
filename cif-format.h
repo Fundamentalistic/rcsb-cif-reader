@@ -26,7 +26,7 @@ typedef struct
 typedef struct 
 {
     unsigned int res_id;
-    unsigned int res_name;
+    char res_name[5];
     int atom_sizes;
     Atom * atoms;
     char chain_id;
@@ -58,4 +58,4 @@ typedef struct {
 
 
 CifParams* read_cif_params(char* path);
-CifFile* read_cif_file(char* path);
+CifFile* make_cif_object(char* path, CifParams* params);
