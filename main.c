@@ -24,10 +24,11 @@ int main(int argc, char * argv[])
     for(int i = 0; i < params->chains_count; i++){
         printf("chain_id: %i\n", i);
         for(int j = 0; j < cif_file->chains[i].residue_size; j++){
-            printf("%s-", cif_file->chains[i].residues[j].res_name);
+            printf("%s->", cif_file->chains[i].residues[j].res_name);
         }
-        //printf("\n");
+        printf("\b\b  \n\n");
     }
+
 
     return 0;
 }

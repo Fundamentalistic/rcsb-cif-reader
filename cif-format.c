@@ -164,8 +164,6 @@ CifParams * read_cif_params(char * path)
     free(line);
     fclose(file);
 
-    // params->chains_count++;
-
     return params;
 }
 
@@ -229,14 +227,6 @@ CifFile* make_cif_object(char* path, CifParams* params)
             cif_file->chains[chains_cursor].residues[res_cursor].res_name[3] = cif_file->chains[chains_cursor].residues[res_cursor].res_name[4] = 0;
             cif_file->chains[chains_cursor].residues[res_cursor].res_id = atom_record->res_id;
             cif_file->chains[chains_cursor].residues[res_cursor].chain_id = *atom_record->chain_id;
-
-            if(chains_cursor > 6 && cif_file->chains[chains_cursor].residues[res_cursor].res_name[0] != 'A'){
-                printf("MEMORY ERROR!!! chains_cursor: %i res_cursor: %i\n", chains_cursor, res_cursor);
-            }
-
-            if((chains_cursor >= 6) && res_cursor == 0){
-                printf("ERROR RES: %s\n", cif_file->chains[chains_cursor].residues[res_cursor].res_name);
-            }
 
             res_cursor++;
         }
