@@ -29,6 +29,7 @@ int main(int argc, char * argv[])
         printf("\b\b  \n\n");
     }
 
+    free(cif_file);
 
     return 0;
 }

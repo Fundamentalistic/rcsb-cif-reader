@@ -247,6 +247,8 @@ CifFile* make_cif_object(char* path, CifParams* params)
 
 
     fclose(file);
+    free(atom_record);
+    free(line);
 
     return cif_file;
 }
